@@ -1,0 +1,33 @@
+order_id,customer_id,customer_name,email,phone,country,state,city,address,postal_code,order_date,ship_date,ship_mode,item_sku,item_name,quantity,unit_price,currency,discount_code,order_notes
+1001,C001,John Doe,john.doe@example.com,+1 (617) 555-0101 ,US,MA,Boston,77 Massachusetts Ave,02139,2025-07-21T10:15:00-04:00,2025-07-22,Standard,SKU-ALPHA-01,Wireless Mouse,2,29.99,USD,,Thanks!
+1002,C002,Jane Smith,JANE.SMITH@example.com ,6175550102,US,MA,Cambridge,1 Main St,02139 ,07/22/2025,2025-07-23,Express,SKU-BETA-02,Mechanical Keyboard,1,$119.00,USD,SUMMER25,Deliver after 5pm
+1003,C003,José Álvarez, jose.alvarez@example.es,+34 600 123 456,ES,,Madrid,Calle de Alcalá 45,28014,21-07-2025,23-07-2025,Standard,SKU-GAMMA-03,Gaming Headset,3,"89,99",EUR,VERANO10,Cliente preferente
+1004,C004,München Büro GmbH,info@munich-office.de,+49-89-123456,DE,BY,München,Leopoldstraße 50,80802,2025/07/21 15:30,2025/07/24,Standard,SKU-DELTA-04,4K Monitor,5,"€399,00",EUR,,Include VAT invoice
+1005,C005,Tokyo Electronics 東京,sales@tokyo.co.jp,+81 3 1234 5678,JP,Tokyo,千代田区,1-1 Chiyoda,100-0001,2025-07-20T08:00:00+09:00,2025-07-21,Express,SKU-EPS-05,SSD 2TB,10,"¥25,000",JPY,,Rush order
+1006,C006,Alice   Johnson,alice.johnson@example.com,(617)555-0103,US,MA,Somerville,   10 Elm St   ,02143,2025-02-30,2025-03-01,Standard,SKU-ZETA-06,USB-C Hub,2,39.99,USD,,Invalid order_date (Feb 30)
+1007,C007,Bob O'Reilly,bob.o'reilly@example.com,+1-617-555-0104,US,MA,Boston,42 Beacon St,02108,2025-07-21,2025-07-20,Standard,SKU-ETA-07,Webcam,1,49.99,USD,,Ship date before order date
+1008,C008,Chen Wei,chen.wei@example.cn,+86 10 5550 104,CN,BJ,Beijing,海淀区中关村东路58号,100080,2025-07-19,2025-07-22,Standard,SKU-THETA-08,Laptop Stand,two,19.99,USD,,Non-numeric quantity
+1009,C009,François Dupont,francois.dupont@example.fr,+33 1 23 45 67 89,FR,,Paris,10 Rue de Rivoli,75001,2025-07-21,2025-07-22,Standard,SKU-IOTA-09,Portable Charger,-1,"€29,99",EUR,,Negative quantity
+1010,C010,"Liu, Mei",liu.mei@example.com,617-555-0105,US,MA,Quincy,5 Hancock St,02171,2025-07-21,2025-07-22,Standard,SKU-KAPPA-10,External HDD,1,"1,234.56",USD,,US number with thousands separator
+1011,C011,Smith & Sons,contact@smithsons.com,+44 20 7946 0958,UK,,London,221B Baker Street,NW1 6XE,2025-07-21,2025-07-22,Express,SKU-LAMBDA-11,Router,4,£79.99,GBP,,UK pricing with symbol
+1012,C012,N/A,,,US,MA,,,,2025-07-21,2025-07-22,Standard,SKU-MU-12,HDMI Cable,2,9.99,USD,,Missing customer info
+1013,C013,Acme Corp,billing@acme.com,+1 617 555 0106,US,MA,Boston,100 Industrial Way,02110,2025-07-21 13:00:00,2025-07-21 18:00:00,Express,SKU-NU-13,Docking Station,3,USD 149.99,USD,,Currency duplicated in unit_price
+1014,C014,Gamma LLC,finance@gamma.llc,+1 617 555 0107,US,MA,Waltham,200 Main St,02451,2025-07-21,,Standard,SKU-XI-14,Bluetooth Speaker,2,59.99,USD,,Missing ship_date
+1015,C015,Delta Partners,delta.partners@example.com,+1 617 555 0108,US,MA,Boston,12 Broad St,02109,2025-07-21,2025-07-22,Standard,SKU-OMICRON-15,Smart Plug,2, 24.99 ,USD,WINTER5,Whitespace around price
+1016,C016,Epsilon Co,bad.email@@example..com,+1 617 555 0109,US,MA,Boston,34 Summer St,02110,2025-07-21,2025-07-22,Standard,SKU-PI-16,LED Lamp,1,14.99,USD,,Invalid email format
+1017,C017,Zeta Ventures,zeta@ventures.io,+1 617 555 0110,US,MA,Brookline,8 Coolidge Corner,02446,2025-07-21,2025-07-22,Standard,SKU-RHO-17,USB Drive 128GB,5,12.99,USD,,"Contains, comma in notes"
+1018,C018,Theta Inc,theta@example.com,+1 617 555 0111,US,MA,Boston,50 Tech Ave,02111,2025-07-21,2025-07-22,Standard,SKU-SIGMA-18,USB-C Cable,2,"1.234,56",EUR,,European decimal commas with thousands
+1019,C019,Iota Ltd,iota@example.co.uk,+44 161 555 0112,UK,,Manchester,10 King St,M2 6AH,2025-07-21,2025-07-22,Standard,SKU-TAU-19,Ethernet Cable,3,GBP 9.99,GBP,,Currency code in unit_price
+1020,C020,Kappa Group,kappa@example.com,+1 617 555 0113,US,MA,Boston,1 Kappa Way,02112,2025-07-21,2025-07-22,Standard,SKU-PHI-20,HDMI Adapter,,19.99,USD,,Empty quantity
+1021,C021,Lambda Holdings,lambda@example.com,+1 617 555 0114,US,MA,Boston,2 Lambda Ln,02113,2025-07-21,2025-07-22,Standard,SKU-CHI-21,Surge Protector,1,NaN,USD,,Non-numeric unit_price
+1022,C022,Omicron Labs,omicron@example.com,+1 617 555 0115,US,MA,Boston,3 Omicron Rd,02114,2025-07-21,2025-07-22,Standard,SKU-PSI-22,Power Bank,1,49.99,USD,,"Line with newline
+Second line of notes"
+1023,C023,Pi Analytics,pi@analytics.io,+1 617 555 0116,US,MA,Boston,4 Pi Pl,02115,2025-07-21T09:00:00Z,2025-07-23T12:00:00Z,Express,SKU-OMEGA-23,Laptop Sleeve,2,15.00,USD,,ISO 8601 UTC timestamps
+1024,C024,Rho Retail,rho@retail.com,+1 617 555 0117,US,MA,Boston,5 Rho Rd,02116,2025-07-21,2025-07-22,Standard,SKU-ALPHA-01,Wireless Mouse,2,29.99,USD,,Duplicate SKU with different order
+1001,C001,John Doe,john.doe@example.com,+1 (617) 555-0101,US,MA,Boston,77 Massachusetts Ave,02139,2025-07-21,2025-07-22,Standard,SKU-ALPHA-01,Wireless Mouse,2,29.99,USD,,Exact duplicate order row to test deduplication
+1025,C025,Sigma Retail,sigma@retail.com,+1 617 555 0118,US,MA,Boston,6 Sigma Ave,02117,2025-07-21,2025-07-22,Standard,SKU-DELTA-04,4K Monitor,1,399.00,USD,,Same item as EU with different currency
+,C026,Tau Systems,tau@example.com,+1 617 555 0119,US,MA,Boston,7 Tau St,02118,2025-07-21,2025-07-22,Standard,SKU-ETA-07,Webcam,1,49.99,USD,,Missing order_id
+1027,C027,Upsilon Ltd,upsilon@example.com,+1 617 555 0120,US,MA,Boston,8 Upsilon Pkwy,02119,2025-07-21,2025-07-22,Standard,SKU-THETA-08,Laptop Stand,1,49.99 USD,USD,,Unit price with trailing currency
+1028,C028,Phi Group,phi.group@example.com,+1 617 555 0121,US,MA,Boston,9 Phi Rd,02120,07-21-2025,07-22-2025,Standard,SKU-KAPPA-10,External HDD,3,"1 234,56",EUR,,Spaces in thousands separator
+1029,C029,Omega Partners,omega.partners@example.com,+1 617 555 0122,US,MA,Boston,10 Omega Blvd,02121,2025-07-21,2025-07-22,Standard,SKU-PSI-22,Power Bank,2,,USD,,Empty unit price
+1030,C030,Alpha Co,alpha@example.com,+1 617 555 0123,US,MA,Boston,11 Alpha St,02122,2025-07-21,2025-07-22,Standard,SKU-ALPHA-01,Wireless Mouse,1,"29,99",USD,,Comma decimal with USD
