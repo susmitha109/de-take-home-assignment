@@ -49,6 +49,36 @@ def split_records(df):
     return good, bad
 
 
+def split_business_rules(df):
+    # Cross-field / range checks. First matching rule wins per row.
+    rules = [
+        (
+            df["ship_date"].notna() & df["order_date"].notna()
+            & (df["ship_date"] < df["order_date"]),
+            "ship_date before order_date",
+        ),
+        (
+            df["quantity"].notna() & (df["quantity"] <= 0),
+            "quantity <= 0",
+        ),
+        (
+            df["unit_price"].map(lambda v: v is not None and v < 0),
+            "unit_price negative",
+        ),
+    ]
+
+    reason = pd.Series(pd.NA, index=df.index, dtype="object")
+    for cond, msg in rules:
+        reason[cond & reason.isna()] = msg
+
+    bad_mask = reason.notna()
+    good = df[~bad_mask].copy()
+    bad  = df[bad_mask].copy()
+    if not bad.empty:
+        bad["rejection_reason"] = reason[bad_mask]
+    return good, bad
+
+
 def split_duplicates(df):
     # Keep first occurrence; later rows with the same (order_id, item_sku) go to rejected.
     dup_mask = df.duplicated(subset=DEDUP_KEY, keep="first")
@@ -81,6 +111,9 @@ def publish_stage_to_final(config_path: str, input_path: str) -> tuple[int, int]
         engine, params={"f": input_file_name},
     )
     valid, rejected = split_records(stage)
+    valid, br_bad   = split_business_rules(valid)
+    if not br_bad.empty:
+        rejected = pd.concat([rejected, br_bad], ignore_index=True)
     valid, dupes = split_duplicates(valid)
     if not dupes.empty:
         rejected = pd.concat([rejected, dupes], ignore_index=True)

@@ -15,6 +15,7 @@ from src.raw_to_stage import (
     clean_quantity,
     clean_text,
 )
+from src.stage_to_published import split_business_rules
 
 
 def s(values):
@@ -78,3 +79,19 @@ def test_clean_currency():
 def test_clean_postal_code():
     out = clean_postal_code(s(["  sw1a 1aa ", "10001"]))
     assert out.tolist() == ["SW1A 1AA", "10001"]
+
+
+def test_split_business_rules():
+    df = pd.DataFrame({
+        "order_date": pd.to_datetime(["2025-07-21", "2025-07-21", "2025-07-21", "2025-07-21"]),
+        "ship_date":  pd.to_datetime(["2025-07-22", "2025-07-20", "2025-07-22", None]),
+        "quantity":   pd.array([1, 1, -1, 2], dtype="Int64"),
+        "unit_price": [Decimal("9.99"), Decimal("9.99"), Decimal("9.99"), Decimal("-1.00")],
+    })
+    good, bad = split_business_rules(df)
+    assert len(good) == 1
+    assert sorted(bad["rejection_reason"].tolist()) == [
+        "quantity <= 0",
+        "ship_date before order_date",
+        "unit_price negative",
+    ]
